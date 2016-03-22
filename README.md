@@ -9,7 +9,7 @@ Plugin Javascript que converte um Json em um arquivo CSV
 
 # Instalação
 
-    $ git clone https://github.com/tiimgreen/github-cheat-sheet
+    $ git clone https://github.com/MarcosEllys/jsonExportCSV
 
 # Como usar
 
