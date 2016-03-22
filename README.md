@@ -46,6 +46,10 @@ var exported = new ExportJson({
 exported.export();
 ```
 
+# Exmplo no JS Fiddle
+
+[Link do exemplo](https://jsfiddle.net/marcosellys/ercemgeo/1/)
+
 # Contribuição
 
   Esse plugin só foi possível graças a ajuda de [@brisanetesequias](https://github.com/brisanetesequias) e [@Wandecilenio](https://github.com/Wandecilenio)
