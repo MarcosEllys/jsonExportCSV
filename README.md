@@ -58,7 +58,9 @@ var exported = new ExportJson({
 
 
 > :sunny: Por padrão o **header** é true e **não** é obrigatório
+
 > :sunny: Por padrão o **asc** é false e **não** é obrigatório
+
 > :sunny: Caso passe **headerPersonalized** a ordem vai ser a do **headerPersonalized**
 
 ##### Agora chame o metódo que exporta
