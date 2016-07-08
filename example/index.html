@@ -1,0 +1,153 @@
+<!DOCTYPE >
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Teste</title>
+	<style>
+		.json_area {
+			text-align: center;
+		}
+		textarea {
+			width:100%;
+			height: 300px;
+			background-color: transparent;
+			border: 1px solid #000000;
+			scrollbar-arrow-color: #000066;
+			scrollbar-base-color: #000033;
+			scrollbar-dark-shadow-color: #336699;
+			scrollbar-track-color: #666633;
+			scrollbar-face-color: #cc9933;
+			scrollbar-shadow-color: #DDDDDD;
+			scrollbar-highlight-color: #CCCCCC;
+		}
+		.trigger-button {
+			width: 50%;
+			background-color: #4CAF50;
+			border: none;
+			border-radius: 2px;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			background-color: #4CAF50;
+		}
+		.trigger-button:hover {
+			background-color: #4CAF50; /* Green */
+			color: white;
+		}
+	</style>
+	<script src="./../jsonExport.min.js"></script>
+</head>
+<body>
+	<div class='json_area'>
+    <textarea id="txt" class='txtarea'>
+      [
+			  {
+			    "_id": "577f016f4dcff5f215c2f0c0",
+			    "index": 0,
+			    "isActive": false,
+			    "picture": "http://placehold.it/32x32",
+			    "age": 36,
+			    "eyeColor": "brown",
+			    "name": "Rocha Patrick",
+			    "gender": "male",
+			    "email": "rochapatrick@xelegyl.com"
+			  },
+			  {
+			    "_id": "577f016f47f51f94a31380b2",
+			    "index": 1,
+			    "isActive": true,
+			    "picture": "http://placehold.it/32x32",
+			    "age": 23,
+			    "eyeColor": "brown",
+			    "name": "Raymond Gentry",
+			    "gender": "male",
+			    "email": "raymondgentry@xelegyl.com"
+			  },
+			  {
+			    "_id": "577f016f8eacf00e56b9b619",
+			    "index": 2,
+			    "isActive": true,
+			    "picture": "http://placehold.it/32x32",
+			    "age": 31,
+			    "eyeColor": "green",
+			    "name": "Ruthie Roberson",
+			    "gender": "female",
+			    "email": "ruthieroberson@xelegyl.com"
+			  },
+			  {
+			    "_id": "577f016f380c3865bbdf5ed1",
+			    "index": 3,
+			    "isActive": false,
+			    "picture": "http://placehold.it/32x32",
+			    "age": 40,
+			    "eyeColor": "brown",
+			    "name": "Brianna Ellison",
+			    "gender": "female",
+			    "email": "briannaellison@xelegyl.com"
+			  },
+			  {
+			    "_id": "577f016fcae606b434ee7338",
+			    "index": 4,
+			    "isActive": false,
+			    "picture": "http://placehold.it/32x32",
+			    "age": 31,
+			    "eyeColor": "green",
+			    "name": "Trevino Le",
+			    "gender": "male",
+			    "email": "trevinole@xelegyl.com"
+			  },
+			  {
+			    "_id": "577f016f45a9c55a2597e598",
+			    "index": 5,
+			    "isActive": true,
+			    "picture": "http://placehold.it/32x32",
+			    "age": 40,
+			    "eyeColor": "green",
+			    "name": "Becker Higgins",
+			    "gender": "male",
+			    "email": "beckerhiggins@xelegyl.com"
+			  },
+			  {
+			    "_id": "577f016fea90280cb0be07a6",
+			    "index": 6,
+			    "isActive": false,
+			    "picture": "http://placehold.it/32x32",
+			    "age": 26,
+			    "eyeColor": "blue",
+			    "name": "Liza Joyner",
+			    "gender": "female",
+			    "email": "lizajoyner@xelegyl.com"
+			  }
+			]
+    </textarea>
+    <button id="trigger" class="trigger-button" type="button">Generate File</button>
+	</div>
+	<script>
+		// Declared Object
+		var exported = new ExportJson({
+		  data: document.getElementById('txt').value,
+		  fileName: 'Peoples Report',
+		  header: true,
+		  headerPersonalized: {
+				"Indice": "index",
+				"Códgio ": "_id",
+				"Nome": "name",
+				"Imagem": "picture",
+				"Idade": "age",
+				"Cor do olho": "eyeColor",
+				"Gênero": "gender",
+				"E-mail": "email",
+				"Ativo": "isActive"
+			}
+		});
+
+		document.getElementById('trigger').addEventListener('click', function() {
+		  // Call export JSON to CSV
+		  exported.export();
+		});
+	</script>
+</body>
+</html>

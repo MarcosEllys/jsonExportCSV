@@ -17,13 +17,20 @@ Plugin Javascript que converte um Json em um arquivo CSV
 
 ```json
 [
-	{"Vehicle":"BMW","Date":"30, Jul 2013 09:24 AM","Location":"Hauz Khas, Enclave, New Delhi, Delhi, India","Speed":42},
-	{"Vehicle":"Honda CBR","Date":"30, Jul 2013 12:00 AM","Location":"Military Road,  West Bengal 734013,  India","Speed":0},
-	{"Vehicle":"Supra","Date":"30, Jul 2013 07:53 AM","Location":"Sec-45, St. Angel's School, Gurgaon, Haryana, India","Speed":58},
-	{"Vehicle":"Land Cruiser","Date":"30, Jul 2013 09:35 AM","Location":"DLF Phase I, Marble Market, Gurgaon, Haryana, India","Speed":83},
-	{"Vehicle":"Suzuki Swift","Date":"30, Jul 2013 12:02 AM","Location":"Behind Central Bank RO, Ram Krishna Rd by-lane, Siliguri, West Bengal, India","Speed":0},
-	{"Vehicle":"Honda Civic","Date":"30, Jul 2013 12:00 AM","Location":"Behind Central Bank RO, Ram Krishna Rd by-lane, Siliguri, West Bengal, India","Speed":0},
-	{"Vehicle":"Honda Accord","Date":"30, Jul 2013 11:05 AM","Location":"DLF Phase IV, Super Mart 1, Gurgaon, Haryana, India","Speed":71}
+  {"_id": "577f016f4dcff5f215c2f0c0","index": 0,"isActive": false,"picture": "http://placehold.it/32x32","age": 36,"eyeColor": "brown","name": "Rocha Patrick","gender": "male","email": "rochapatrick@xelegyl.com"
+  },
+  {"_id": "577f016f47f51f94a31380b2","index": 1,"isActive": true,"picture": "http://placehold.it/32x32","age": 23,"eyeColor": "brown","name": "Raymond Gentry","gender": "male","email": "raymondgentry@xelegyl.com"
+  },
+  {"_id": "577f016f8eacf00e56b9b619","index": 2,"isActive": true,"picture": "http://placehold.it/32x32","age": 31,"eyeColor": "green","name": "Ruthie Roberson","gender": "female","email": "ruthieroberson@xelegyl.com"
+  },
+  {"_id": "577f016f380c3865bbdf5ed1","index": 3,"isActive": false,"picture": "http://placehold.it/32x32","age": 40,"eyeColor": "brown","name": "Brianna Ellison","gender": "female","email": "briannaellison@xelegyl.com"
+  },
+  {"_id": "577f016fcae606b434ee7338","index": 4,"isActive": false,"picture": "http://placehold.it/32x32","age": 31,"eyeColor": "green","name": "Trevino Le","gender": "male","email": "trevinole@xelegyl.com"
+  },
+  {"_id": "577f016f45a9c55a2597e598","index": 5,"isActive": true,"picture": "http://placehold.it/32x32","age": 40,"eyeColor": "green","name": "Becker Higgins","gender": "male","email": "beckerhiggins@xelegyl.com"
+  },
+  {"_id": "577f016fea90280cb0be07a6","index": 6,"isActive": false,"picture": "http://placehold.it/32x32","age": 26,"eyeColor": "blue","name": "Liza Joyner","gender": "female","email": "lizajoyner@xelegyl.com"
+  }
 ]
 ```
 
@@ -33,12 +40,26 @@ Plugin Javascript que converte um Json em um arquivo CSV
 var exported = new ExportJson({
   data: jsonData,
   fileName: 'Vehicle Report',
-  header: false
+  header: false,
+  asc: false,
+  headerPersonalized: {
+		"Indice": "index",
+		"Códgio ": "_id",
+		"Nome": "name",
+		"Imagem": "picture",
+		"Idade": 36,
+		"Cor do olho": "eyeColor",
+		"Gênero": "gender",
+		"E-mail": "email",
+		"Ativo": "isActive"
+	}
 });
 ```
 
 
 > :sunny: Por padrão o **header** é true e **não** é obrigatório
+> :sunny: Por padrão o **asc** é false e **não** é obrigatório
+> :sunny: Caso passe **headerPersonalized** a ordem vai ser a do **headerPersonalized**
 
 ##### Agora chame o metódo que exporta
 

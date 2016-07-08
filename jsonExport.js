@@ -16,7 +16,8 @@
     	data: [],
     	title: "",
     	header: true,
-    	asc: false
+    	asc: false,
+    	headerPersonalized: {}
     };
 
     // Create options by extending defaults with the passed in arugments
@@ -44,8 +45,17 @@
 
 		//This condition will generate the Label/Header
 		var row = "";
+
+		// Method check header personalized
+		function isEmpty(object) {
+		  for(var key in object) {
+		      return false;
+		  }
+		  return true;
+		}
+
 		// Data for header
-		var tempDataHeader = constructHeader(arrData[0], this.options.asc === true ?  true : false);
+		var tempDataHeader = constructHeader(isEmpty(this.options.headerPersonalized) ? arrData[0] : this.options.headerPersonalized, this.options.asc === true ?  true : false);
 
 		header = tempDataHeader;
 
@@ -64,10 +74,19 @@
 		  var row = "";
 
 		  //2nd loop will extract each column and convert it in string comma-seprated
-		  for (var key in header) {
-		    if (key != 'contains') {
-		       row += '"' + arrData[i][header[key]] + '";';
-		    }
+		  if (isEmpty(this.options.headerPersonalized)) {
+			  for (var key in header) {
+			    if (key != 'contains') {
+			       row += '"' + arrData[i][header[key]] + '";';
+			    }
+			  }
+		  }
+		  else {
+		  	for (var key in header) {
+			    if (key != 'contains') {
+			       row += '"' + arrData[i][this.options.headerPersonalized[header[key]]] + '";';
+			    }
+			  }
 		  }
 
 		  row.slice(0, row.length - 1);
